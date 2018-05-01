@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="main.css">
     <title>Lexicon</title>
     <script type="text/javascript">
-
         window.onload = MostrarTabla;;
     </script>
 </head>
@@ -21,7 +20,6 @@
     <iframe id='stopwords' src='stopwords-es.txt' onload='cargarStopWords()' hidden="true"> </iframe>
 
     <div class="article-clean">
-
         <div class="col-md-12">
             <ul class="nav nav-tabs nav-justified">
                 <li class="active">
@@ -30,15 +28,8 @@
                 <li>
                     <a data-toggle="tab" href="#menu2">Lexicon/StopWords</a>
                 </li>
-
             </ul>
-
         </div>
-
-
-
-
-
 
         <div class="tab-content">
             <div id="menu1" class="tab-pane fade in active">
@@ -83,9 +74,7 @@
                                 <div id="tab2" class="tab-pane fade">
                                     <div id="plexicon2" class=" col-md-12 col-sm-12 resultado">
 
-
                                         <p class="texto-t">Palabras Positivas</p>
-
 
                                         <input type="text" id="entrada2" onkeyup="BuscarPositivas()" placeholder="Buscar palabra...">
                                         <table id="" class="table table-fixed">
@@ -97,21 +86,13 @@
                                         </table>
                                         <div style="height: 200px;" class="pre-scrollable ">
                                             <table id="tabla2" class="table table-fixed"></table>
-
                                         </div>
-
-
                                     </div>
 
                                 </div>
                                 <div id="tab3" class="tab-pane fade">
                                     <div id="plexicon3" class=" col-md-12 col-sm-12 resultado">
-
-
-
                                         <p class="texto-t">Palabras Negativas</p>
-
-
                                         <input type="text" id="entrada3" onkeyup="BuscarNegativas()" placeholder="Buscar palabra...">
                                         <table id="" class="table table-fixed">
                                             <thead>
@@ -122,19 +103,12 @@
                                         </table>
                                         <div style="height: 200px;" class="pre-scrollable ">
                                             <table id="tabla3" class="table table-fixed"></table>
-
                                         </div>
-
                                     </div>
-
                                 </div>
                                 <div id="tab4" class="tab-pane fade">
                                     <div id="plexicon4" class=" col-md-12 col-sm-12 resultado">
-
-
                                         <p class="texto-t">Palabras Neutras</p>
-
-
                                         <input type="text" id="entrada4" onkeyup="BuscarNeutro()" placeholder="Buscar palabra...">
                                         <table id="" class="table table-fixed">
                                             <thead>
@@ -145,13 +119,9 @@
                                         </table>
                                         <div style="height: 200px;" class="pre-scrollable ">
                                             <table id="tabla4" class="table table-fixed"></table>
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
 
                                 <div id="tab5" class="tab-pane fade">
                                     <div id="plexicon5" class=" col-md-12 col-sm-12 resultado">
@@ -159,13 +129,10 @@
 
                                         <p class="texto-t">Palabras en StopWords</p>
                                         <table id="" class="table table-fixed">
-
                                         </table>
                                         <div style="height: 120px;" class="pre-scrollable ">
                                             <table id="tabla5" class="table table-fixed"></table>
-
                                         </div>
-
                                         <p class="texto-t">Palabras que no existen (Ni Lexicon ni StopWords)</p>
                                         <div style="height: 120px;" class="pre-scrollable ">
                                             <table id="tabla6" class="table table-fixed"></table>
