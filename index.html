@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+    <title>Lexicon</title>
+    <script type="text/javascript">
+
+        window.onload = MostrarTabla;;
+    </script>
+</head>
+
+<body>
+    <iframe id='lexicon' src='lexicon.txt' onload='cargarLexicon()' hidden="true"> </iframe>
+    <iframe id='stopwords' src='stopwords-es.txt' onload='cargarStopWords()' hidden="true"> </iframe>
+
+    <div class="article-clean">
+
+        <div class="col-md-12">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active">
+                    <a data-toggle="tab" href="#menu1">Analizar</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu2">Lexicon/StopWords</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+
+
+
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade in active">
+
+                <div class="row" style="margin:1px;">
+                    <div class="col-md-12" style="margin:0px;">
+                        <h2 class="text-center" style="padding-bottom: 0px;">Analizador de Palabras</h2>
+                        <hr>
+                    </div>
+                    <div class="col-md-12 principal">
+
+                        <div class="col-md-5 col-sm-12 div1">
+                            <p class="texto-t">Ingrese palabra o frase a analizar:</p>
+                            <textarea style="width:100%" id="frase" class="input-lg"></textarea>
+                        </div>
+
+                        <div class="col-md-7 col-sm-12 div2">
+
+                            <ul class="nav nav-tabs  ">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tab1">Resultado</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab2" style="background-color: rgb(153, 198, 153)">Positivas</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab3" style="background-color: rgb(198, 156, 153)">Negativas</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#tab4" style="background-color: rgb(153, 198, 192)">Neutras</a>
+                                </li>
+
+                                <li>
+                                    <a data-toggle="tab" href="#tab5" style="background-color: rgb(197, 198, 153)">S/W & N/E</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab1" class="tab-pane fade in active">
+                                    <div id="plexicon" class=" col-md-12 col-sm-12 resultado"></div>
+                                </div>
+
+                                <div id="tab2" class="tab-pane fade">
+                                    <div id="plexicon2" class=" col-md-12 col-sm-12 resultado">
+
+
+                                        <p class="texto-t">Palabras Positivas</p>
+
+
+                                        <input type="text" id="entrada2" onkeyup="BuscarPositivas()" placeholder="Buscar palabra...">
+                                        <table id="" class="table table-fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-xs-3">Palabras Positivas</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                        <div style="height: 200px;" class="pre-scrollable ">
+                                            <table id="tabla2" class="table table-fixed"></table>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <div id="tab3" class="tab-pane fade">
+                                    <div id="plexicon3" class=" col-md-12 col-sm-12 resultado">
+
+
+
+                                        <p class="texto-t">Palabras Negativas</p>
+
+
+                                        <input type="text" id="entrada3" onkeyup="BuscarNegativas()" placeholder="Buscar palabra...">
+                                        <table id="" class="table table-fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-xs-3">Palabras Negativas</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                        <div style="height: 200px;" class="pre-scrollable ">
+                                            <table id="tabla3" class="table table-fixed"></table>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div id="tab4" class="tab-pane fade">
+                                    <div id="plexicon4" class=" col-md-12 col-sm-12 resultado">
+
+
+                                        <p class="texto-t">Palabras Neutras</p>
+
+
+                                        <input type="text" id="entrada4" onkeyup="BuscarNeutro()" placeholder="Buscar palabra...">
+                                        <table id="" class="table table-fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-xs-3">Palabras Neutras</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                        <div style="height: 200px;" class="pre-scrollable ">
+                                            <table id="tabla4" class="table table-fixed"></table>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div id="tab5" class="tab-pane fade">
+                                    <div id="plexicon5" class=" col-md-12 col-sm-12 resultado">
+
+
+                                        <p class="texto-t">Palabras en StopWords</p>
+                                        <table id="" class="table table-fixed">
+
+                                        </table>
+                                        <div style="height: 120px;" class="pre-scrollable ">
+                                            <table id="tabla5" class="table table-fixed"></table>
+
+                                        </div>
+
+                                        <p class="texto-t">Palabras que no existen (Ni Lexicon ni StopWords)</p>
+                                        <div style="height: 120px;" class="pre-scrollable ">
+                                            <table id="tabla6" class="table table-fixed"></table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 div1">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary btn-lg" onclick='iniciarAnalisis()' type="button">Realizar Analisis</button>
+                            <button class="btn btn-default btn-lg" onclick='Limpiar()' type="button">Limpiar</button>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="total"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <div class="row" style="margin:1px;">
+                    <div class="col-md-12" style="margin:0px;">
+                        <hr>
+                    </div>
+                    <div class="col-md-12 principal">
+                        <div class=" col-md-6 col-sm-12 div1">
+                            <p class="texto-t">Lexicon</p>
+                            <input type="text" id="entradaL" onkeyup="BuscarLexicon()" placeholder="Buscar palabra...">
+                            <table id="" class="table table-fixed">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-3">Palabra</th>
+                                        <th class="col-xs-3">Polaridad</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="pre-scrollable ">
+                                <table id="tablaL" class="table table-fixed"></table>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 div2">
+                            <p class="texto-t">Stopwords</p>
+                            <input type="text" id="entradaS" onkeyup="BuscarStopWords()" placeholder="Buscar palabra...">
+                            <table id="" class="table table-fixed">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-3">Palabras en StopWord</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="pre-scrollable ">
+                                <table id="tablaS" class="table table-fixed"></table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
