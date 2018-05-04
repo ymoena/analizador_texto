@@ -1,12 +1,8 @@
 function cargarLexicon() {
-  return (lexicon = document
-    .getElementById("lexicon")
-    .contentDocument.body.firstChild.innerHTML.split(/\n/));
+  return (lexicon = document.getElementById("lexicon").contentDocument.body.firstChild.innerHTML.split(/\n/));
 }
 function cargarStopWords() {
-  return (stopwords = document
-    .getElementById("stopwords")
-    .contentDocument.body.firstChild.innerHTML.split(/\n/));
+  return (stopwords = document.getElementById("stopwords").contentDocument.body.firstChild.innerHTML.split(/\n/));
 }
 
 function iniciarAnalisis() {
@@ -34,10 +30,6 @@ function readfile(frase) {
   var lexicon = cargarLexicon();
   var stopwords = cargarStopWords();
 
-  //var palabra = "gato";
-  //var cadena = "mi gato es genial mientras que, el perro es tonto"
-  //var resultado = searchStringInArray(palabra,lexicon);
-
   document.getElementById("plexicon").innerHTML = "";
   document.getElementById("tabla2").innerHTML = "";
   document.getElementById("tabla3").innerHTML = "";
@@ -47,31 +39,15 @@ function readfile(frase) {
 
   ProcesarTextoEntrada(frase, lexicon, stopwords);
 
-  //Imprimir
-  //console.log("El resultado es ",resultado);
-  //console.log(lexicon);
-  //console.log(stopwords.length);
 }
 
 function searchStringInArray(str, strArray) {
   for (var j = 0; j < strArray.length; j++) {
     var temp_str = strArray[j].split(" ");
-    //var n = temp_str[0].indexOf(str);
-    //console.log(temp_str[0]," ", temp_str[1]);
-
-    //if(temp_str[0].indexOf(str)==0 && temp_str[0].length == str.length){}
-    //var esta = temp_str[0].indexOf(str);
     if (temp_str[0].indexOf(str) == 0 && temp_str[0].length == str.length) {
-      //console.log("Esta la palabra:  ",temp_str[0], "  ", j);
-      // console.log(temp_str[0], temp_str[1]);
       return j;
       break;
     }
-
-    //  if (temp_str[0].match(str)){
-    //     console.log(temp_str[0], temp_str[1]);
-    //     return j;
-    // }
   }
   return -1;
 }
@@ -199,7 +175,6 @@ function ImprimirResultad(
   }
   console.log(cant0s, cant1s, cantmenos1);
 
-  //var total = document.getElementById("total");
   var resultadofinal;
   console.log("El total es: ", sum);
   if (sum == 0) {
@@ -292,7 +267,6 @@ function BuscarLexicon() {
   table = document.getElementById("tablaL");
   tr = table.getElementsByTagName("tr");
 
-  // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];
     if (td) {
